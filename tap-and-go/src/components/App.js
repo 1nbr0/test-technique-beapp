@@ -1,17 +1,16 @@
 import '../App.css';
-import Navbar from './Navbar';
+import Navbar from './Navbar.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import StationList from './StationList';
-import Home from './Home';
-import Map from './Map';
+import StationList from './StationList.jsx';
+import Home from './Home.jsx';
+import Map from './Map.jsx';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <div className="content">
           <Switch>
             <Route exact path="/">
               <Home />
@@ -24,7 +23,6 @@ function App() {
             </Route>
           </Switch>
         </div>
-      </div>
     </Router>
   );
 }
