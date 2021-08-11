@@ -1,9 +1,5 @@
 import React from 'react';
 import '../styles/home.css';
-import firstImg from '../assets/img/bike-nantes.jpg';
-import secondImg from '../assets/img/lyon.jpg';
-import thirdImg from '../assets/img/nantes.jpg';
-import fourthImg from '../assets/img/marseille.jpg';
 
 function Home() {
     return (
