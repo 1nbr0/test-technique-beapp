@@ -26,4 +26,22 @@
 
 .tag-span {
     color: #2891af;
+    text-shadow: 2px 2px #2e6c7e;
+}
+
+.home-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-body {
+    width: 20%;
+    height: 50px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    margin-top: 5rem;
+    color: white;
+    background-color: #2891af;
+    box-shadow: 0px 2px 12px 3px rgb(109 109 109 / 51%);
 }
