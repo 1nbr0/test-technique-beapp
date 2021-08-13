@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import StationList from './StationList.jsx';
 import Home from './Home.jsx';
 import Map from './Map.jsx';
+import Test from './test/Test';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
               <StationList />
             </Route>
           </Switch>
+          <Route path="/test">
+            <Test />
+          </Route>
         </div>
     </Router>
   );

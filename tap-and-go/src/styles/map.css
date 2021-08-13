@@ -1,0 +1,21 @@
+.btn-map-body {
+    position: absolute;
+    z-index: 1;
+    width: 20%;
+    height: 50px;
+    padding-top: 10px;
+    left: 20px;
+    top: 90vh;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    color: white;
+    background-color: #2891af;
+    box-shadow: 0px 2px 12px 3px rgb(109 109 109 / 51%);
+}
+
+@media only screen and (max-width: 768px) {
+    .btn-map-body {
+        width: 30%;
+        font-size: 0.8rem;
+    }
+}

@@ -52,3 +52,25 @@
 .popup-list {
     font-family: 'Varela Round', sans-serif;
 }
+
+.popup-title {
+    padding-top: 1em;
+    padding-left: 0.5em;
+    margin-bottom: 1.5em;
+}
+
+.popup-text {
+    padding-left: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .list-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .list-title {
+        font-size: 2.5rem;
+    }
+}

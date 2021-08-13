@@ -7,6 +7,7 @@ import '../styles/listingPage.css'; // I also import a css file for the listing 
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Link } from 'react-router-dom';
+// import { useQuery } from "react-query";
 
 // Some css in JSX use styled for a sweat searchBar and more simple to uses in this context
 const SearchBarContainer = styled.div`
@@ -19,6 +20,10 @@ const SearchBarContainer = styled.div`
     border-radius: 6px;
     box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
     overflow: hidden;
+
+    @media only screen and (max-width: 768px) {
+        width: 20em;
+    }
 `;
 
 const SearchInputContainer = styled(motion.div)`
@@ -72,6 +77,12 @@ const CloseIcon = styled(motion.span)`
         color: #dfdfdf;
     }
 `;
+    // I tried to use the hook useQuery but if I use it, I need to declare a life cycle
+
+        // const fecthStations = async () => {
+        //     const res= await fetch("https://api.jcdecaux.com/vls/v1/stations?apiKey=686e9980efabf0d683569beb99aa243b09fe5513");
+        //     return res.json();
+        // }
 
 function StationList() {
     const [data, setData] = useState([]);
@@ -79,15 +90,21 @@ function StationList() {
     const [searchTerm, setSearchTerm] = useState("");
     const inputRef = useRef();
 
+    // I tried to use the hook useQuery but if I use it, I need to declare a life cycle
+    
+        // const { data, isLoading, error } = useQuery("stations", fecthStations);
+        
+        //     if (isLoading) return "Loading...";
+        //     if (error) return <pre>{error.message}</pre>;
+
     const collapseContainer = () => {
         if (inputRef.current) inputRef.current.value = "";
     };
 
-
-// Use axios to purchase and fetch the data of api jcdecaux
+// Use axios to purchase and fetch the data of api jcdecaux on a useEffect method
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios(
+            const result = await axios.get(
                 'https://api.jcdecaux.com/vls/v1/stations?apiKey=686e9980efabf0d683569beb99aa243b09fe5513',
             );
             setData(result.data); // get result of all stations with axios query and put it on data state
@@ -96,7 +113,7 @@ function StationList() {
         fetchData();
     }, [])
 
-    // Use axios to purchase and fetch the data of api jcdecaux
+    // Use axios to purchase and fetch the data details of api jcdecaux
     // useEffect(() => {
     //     const fetchDetails = async () => {
     //         const resultDetails = await axios(
@@ -119,14 +136,18 @@ function StationList() {
         So I decided to display them in a popup
     */
     const Modal = () => (
-        <Popup trigger={<Link className="text-decoration-none">Station </Link>} modal>
+        <Popup trigger={<Link to={Modal} className="text-decoration-none">Station </Link>} modal>
             {/* {details.map((res) => ( */}
                 <section className="popup-body" /* key={res[0]} */>
                     <div className="popup-list">
                         <h1 className="popup-title">
-                            Nom de la station
+                            Nom de la station - adresse
                         </h1>
-                        <h4 className="popup-text">détails de la station</h4>
+                        <h4 className="popup-text">Information sur la station :
+                            <li>Status :</li>
+                            <li>Capacité :</li>
+                            <li>Vélos disponible :</li>
+                        </h4>
                         {/* <p>{res.status}, {res.mainStands.capacity}</p> */}
                     </div>
                 </section>
@@ -173,8 +194,8 @@ function StationList() {
                     <div className="row flex gx">
                         {data.filter((val) => {
                             return val.contract_name.toLowerCase().includes(searchTerm.toLowerCase()) || val.name.toLowerCase().includes(searchTerm.toLowerCase());
-                        }).map((val) => (
-                            <div className="list-container bg-light" key={val[0]}>
+                        }).map((val, index) => (
+                            <div className="list-container bg-light" key={index}>
                                 <div className="list-card-container">
                                     <h5 className="card-title">
                                         <Modal /> {val.name} à {val.contract_name}
