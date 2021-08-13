@@ -48,10 +48,11 @@ normes de nommage, ...)
 
 - [ ] Une partie pour visualiser le nombre et l’emplacement des stations de Bicloo sous forme de carte et de liste
 - [x] Une partie pour visualiser l’emplacement des stations de Bicloo sous forme de liste
+- [x] Une partie pour afficher un google map
 - [ ] Une partie pour consulter le détail d’une station
-- [x] Filtrer et chercher une station en fonction de son nom, de son état (ouvert ou fermé) et de la disponibilité de Bicloo.
+- [x] Filtrer et chercher une station en fonction de son nom.
 - [ ] Filtrer et chercher une station en fonction de son état (ouvert ou fermé) et de la disponibilité de Bicloo.
+- [x] Permettre à l'utilisateur de programmer un itinéraire (en utilisant un site tierce)
 - [ ] Permettre à l’utilisateur de prendre un vélo et le déposer dans la station la plus proche du point d’arrivée.
 - [ ] Prendre en compte le nombre de places et de vélos disponibles.
 - [x] Le code et les commentaires devront être rédigés en anglais.
-- [ ] Mise en place de tests unitaires (quelques uns pour montrer le principe)
